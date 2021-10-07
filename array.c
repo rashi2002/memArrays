@@ -84,6 +84,25 @@ void insertItem(struct memsys *memsys, struct Array *array, unsigned int index, 
 	
 }
 
+void prependItem(struct memsys *memsys, struct Array *array, void *src)
+{
+	insertItem(memsys, array, 0, src);
+}
+
+void deleteItem(struct memsys *memsys, struct Array *array, unsigned int index)
+{
+	void* dest = malloc(sizeof (struct Array));
+	for(int i= index; i<array->nel; i++){
+		readItem(memsys, array, i+1, dest);
+		writeItem(memsys, array, i, dest);
+	}
+	contract(memsys, array);
+
+}
+
+
+
+
 
 
 
