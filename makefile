@@ -1,10 +1,11 @@
 CC = clang
 CFLAGS = -Wall -std=c99 -pedantic
 
-test6: array.o memsys.o test6.o
-	$(CC) $(CFLAGS) array.o memsys.o test6.o -o test6
-test6.o: array.o array.h memsys.o memsys.h
-	$(CC) $(CFLAGS) -c test6.c
+test7: array.o memsys.o test7.o
+	$(CC) $(CFLAGS) array.o memsys.o test7.o -o test7
+	
+test7.o: array.o array.h memsys.o memsys.h
+	$(CC) $(CFLAGS) -c test7.c
 
 array.o: array.h memsys.o memsys.h
 	$(CC) $(CFLAGS) -c array.c
@@ -14,4 +15,4 @@ memsys.o: memsys.h
 
 
 clean:  
-	rm *.o test6
+	rm *.o test7

@@ -90,6 +90,7 @@ void deleteItem(struct memsys *memsys, struct Array *array, unsigned int index)
 	for(int i= index; i<array->nel-1; i++){
 		readItem(memsys, array, i+1, dest);
 		writeItem(memsys, array, i, dest);
+		free(dest);
 	}
 	contract(memsys, array);
 
@@ -97,13 +98,19 @@ void deleteItem(struct memsys *memsys, struct Array *array, unsigned int index)
 
 int findItem(struct memsys *memsys, struct Array *array, int (*compar)(const void*, const void*), void *target)
 {
+	
+	
 	void * dest= malloc(sizeof(struct Array));
+	
 	for(int i=0; i<array->nel; i++){
+		
 		readItem(memsys, array, i, dest);
 		if (compar(target, dest)==0){
+			free(dest);
 			return i;
 		}
 	}
+	free(dest);
 	return -1;
 }
 
@@ -130,14 +137,5 @@ int searchItem(struct memsys *memsys, struct Array *array, int (*compar)(const v
     return -1;
 
 }
-
-
-
-
-
-
-
-
-
 
 
