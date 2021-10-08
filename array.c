@@ -118,24 +118,30 @@ int searchItem(struct memsys *memsys, struct Array *array, int (*compar)(const v
 {
 	int first, last, middle;
     first = 0;
-    last = array->nel;
+    last = array->nel-1;
     middle = (first+last)/2;
 	void*dest = malloc(sizeof(struct Array));
     while (first <= last) {
 		readItem(memsys, array, middle, dest);
-        if (compar(target, dest)==-1)
-        	first = middle + 1;
-    	else if (compar(target, dest) == 0) {
+        
+    	if (compar(target, dest) == 0) {
+			free(dest);
       		return middle;
       		break;
     	}
-    	else
+		else if (compar(target, dest)>0){// means that the target is greater than middle value
+        	first = middle + 1;
+			middle = (first+last)/2;
+		}
+    	else{
       		last = middle - 1;
     		middle = (first + last)/2;
   		}
-  	
+	}
+  	free(dest);
     return -1;
 
 }
 
 
+//int searchItem(struct memsys *memsys, struct Array *array, int (*compar)(const void*, const void*), void *target)
