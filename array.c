@@ -11,7 +11,7 @@ struct Array *newArray(struct memsys *memsys, unsigned int width,unsigned int ca
 	arr->nel = 0;
 	arr->data = memmalloc(memsys, width*capacity);
 	if(arr->data==-1){
-		fprintf(stderr,"ERROR: memory allocation failed, memsys may be full");
+		fprintf(stderr,"ERROR: memory allocation failed, memsys may be full\n");
 		exit(0);
 	}
 	return arr;
@@ -21,7 +21,7 @@ struct Array *newArray(struct memsys *memsys, unsigned int width,unsigned int ca
 void readItem(struct memsys *memsys,struct Array *array, unsigned int index, void *dest )
 {
 	if (index >= array->nel){
-		fprintf(stderr, "ERROR: index greater than the number of elements");
+		fprintf(stderr, "ERROR: index greater than the number of elements\n");
 		exit(0);               
 	}
 	getval(memsys, dest, array->width, array->data + (index*(array->width)));
@@ -30,7 +30,7 @@ void readItem(struct memsys *memsys,struct Array *array, unsigned int index, voi
 void writeItem(struct memsys *memsys, struct Array *array, unsigned int index, void *src)
 {
 	if ((index > array->nel) || (index>= array->capacity)){
-		fprintf(stderr, "ERROR: index greater than the number of elements or greater than/equal to the capacity");		
+		fprintf(stderr, "ERROR: index greater than the number of elements or greater than/equal to the capacity\n");		
 		exit(0);               
 	}
 
@@ -69,18 +69,15 @@ void appendItem(struct memsys *memsys, struct Array *array, void *src)
 
 void insertItem(struct memsys *memsys, struct Array *array, unsigned int index, void *src)
 {
-	appendItem(memsys,array, &array[array->nel]);
-	struct Array temp;
+	//appendItem(memsys,array, &array[array->nel]);
+	
 	void* dest = malloc(sizeof (struct Array));
-	temp.width = array[array->nel].width;
-	temp.nel = array[array->nel].nel;
-	temp.capacity = array[array->nel].capacity;
-	temp.data = array[array->nel].data;
 	for (int i=array->nel; i>index; i-- ){
 		readItem(memsys, array, i-1, dest);
 		writeItem(memsys, array, i, dest);
 	}
 	writeItem(memsys, array, index, src);
+	
 	
 }
 
@@ -97,6 +94,42 @@ void deleteItem(struct memsys *memsys, struct Array *array, unsigned int index)
 		writeItem(memsys, array, i, dest);
 	}
 	contract(memsys, array);
+
+}
+
+int findItem(struct memsys *memsys, struct Array *array, int (*compar)(const void*, const void*), void *target)
+{
+	void * dest= malloc(sizeof(struct Array));
+	for(int i=0; i<array->nel; i++){
+		readItem(memsys, array, i, dest);
+		if (compar(target, dest)==0){
+			return i;
+		}
+	}
+	return -1;
+}
+
+int searchItem(struct memsys *memsys, struct Array *array, int (*compar)(const void*, const void*), void *target)
+{
+	int first, last, middle;
+    first = 0;
+    last = array->nel;
+    middle = (first+last)/2;
+	void*dest = malloc(sizeof(struct Array));
+    while (first <= last) {
+		readItem(memsys, array, middle, dest);
+        if (compar(target, dest)==-1)
+        	first = middle + 1;
+    	else if (compar(target, dest) == 0) {
+      		return middle;
+      		break;
+    	}
+    	else
+      		last = middle - 1;
+    		middle = (first + last)/2;
+  		}
+  	
+    return -1;
 
 }
 
