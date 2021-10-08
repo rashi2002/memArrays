@@ -69,8 +69,6 @@ void appendItem(struct memsys *memsys, struct Array *array, void *src)
 
 void insertItem(struct memsys *memsys, struct Array *array, unsigned int index, void *src)
 {
-	//appendItem(memsys,array, &array[array->nel]);
-	
 	void* dest = malloc(sizeof (struct Array));
 	for (int i=array->nel; i>index; i-- ){
 		readItem(memsys, array, i-1, dest);
@@ -89,7 +87,7 @@ void prependItem(struct memsys *memsys, struct Array *array, void *src)
 void deleteItem(struct memsys *memsys, struct Array *array, unsigned int index)
 {
 	void* dest = malloc(sizeof (struct Array));
-	for(int i= index; i<array->nel; i++){
+	for(int i= index; i<array->nel-1; i++){
 		readItem(memsys, array, i+1, dest);
 		writeItem(memsys, array, i, dest);
 	}
