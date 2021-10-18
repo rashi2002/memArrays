@@ -1,0 +1,74 @@
+Found array.c
+Compiling
+Found array.o
+Compilation succeeded
+Compiling and linking gradeA2_newArray
+Issuing comple command "clang -std=c99 -Wall -pedantic -I ~/Grading/Graders -I . ~/Grading/Graders/gradeA2_newArray.c ~/Grading/Graders/memsys.c array.o -o gradeA2_newArray 1> compile.out 2> compile.err":
+Found gradeA2_newArray
+Compilation succeeded
+newArray passed
+Compiling and linking gradeA2_readItem
+Issuing comple command "clang -std=c99 -Wall -pedantic -I ~/Grading/Graders -I . ~/Grading/Graders/gradeA2_readItem.c ~/Grading/Graders/memsys.c array.o -o gradeA2_readItem 1> compile.out 2> compile.err":
+Found gradeA2_readItem
+Compilation succeeded
+readItem passed
+readItem passed
+Compiling and linking gradeA2_writeItem
+Issuing comple command "clang -std=c99 -Wall -pedantic -I ~/Grading/Graders -I . ~/Grading/Graders/gradeA2_writeItem.c ~/Grading/Graders/memsys.c array.o -o gradeA2_writeItem 1> compile.out 2> compile.err":
+Found gradeA2_writeItem
+Compilation succeeded
+writeItem passed
+writeItem passed
+Compiling and linking gradeA2_contract
+Issuing comple command "clang -std=c99 -Wall -pedantic -I ~/Grading/Graders -I . ~/Grading/Graders/gradeA2_contract.c ~/Grading/Graders/memsys.c array.o -o gradeA2_contract 1> compile.out 2> compile.err":
+Found gradeA2_contract
+Compilation succeeded
+contract passed
+contract passed
+Compiling and linking gradeA2_freeArray
+Issuing comple command "clang -std=c99 -Wall -pedantic -I ~/Grading/Graders -I . ~/Grading/Graders/gradeA2_freeArray.c ~/Grading/Graders/memsys.c array.o -o gradeA2_freeArray 1> compile.out 2> compile.err":
+Found gradeA2_freeArray
+Compilation succeeded
+freeArray passed
+Compiling and linking gradeA2_appendItem
+Issuing comple command "clang -std=c99 -Wall -pedantic -I ~/Grading/Graders -I . ~/Grading/Graders/gradeA2_appendItem.c ~/Grading/Graders/memsys.c array.o -o gradeA2_appendItem 1> compile.out 2> compile.err":
+Found gradeA2_appendItem
+Compilation succeeded
+appendItem passed
+appendItem passed
+Compiling and linking gradeA2_insertItem
+Issuing comple command "clang -std=c99 -Wall -pedantic -I ~/Grading/Graders -I . ~/Grading/Graders/gradeA2_insertItem.c ~/Grading/Graders/memsys.c array.o -o gradeA2_insertItem 1> compile.out 2> compile.err":
+Found gradeA2_insertItem
+Compilation succeeded
+insertItem passed
+insertItem passed
+Compiling and linking gradeA2_prependItem
+Issuing comple command "clang -std=c99 -Wall -pedantic -I ~/Grading/Graders -I . ~/Grading/Graders/gradeA2_prependItem.c ~/Grading/Graders/memsys.c array.o -o gradeA2_prependItem 1> compile.out 2> compile.err":
+Found gradeA2_prependItem
+Compilation succeeded
+prependItem passed
+prependItem passed
+Compiling and linking gradeA2_deleteItem
+Issuing comple command "clang -std=c99 -Wall -pedantic -I ~/Grading/Graders -I . ~/Grading/Graders/gradeA2_deleteItem.c ~/Grading/Graders/memsys.c array.o -o gradeA2_deleteItem 1> compile.out 2> compile.err":
+Found gradeA2_deleteItem
+Compilation succeeded
+deleteItem passed
+deleteItem passed
+Compiling and linking gradeA2_findItem
+Issuing comple command "clang -std=c99 -Wall -pedantic -I ~/Grading/Graders -I . ~/Grading/Graders/gradeA2_findItem.c ~/Grading/Graders/memsys.c array.o -o gradeA2_findItem 1> compile.out 2> compile.err":
+Found gradeA2_findItem
+Compilation succeeded
+findItem passed
+findItem passed
+Compiling and linking gradeA2_searchItem
+Issuing comple command "clang -std=c99 -Wall -pedantic -I ~/Grading/Graders -I . ~/Grading/Graders/gradeA2_searchItem.c ~/Grading/Graders/memsys.c array.o -o gradeA2_searchItem 1> compile.out 2> compile.err":
+Found gradeA2_searchItem
+Compilation succeeded
+searchItem passed
+searchItem passed
+searchItem passed
+Found makefile
+Correct options
+Comments
+Indentation levels are: ['', '\t', '\t\t', '\t\t\t', '  \t', '  \t\t', '    ', '    \t', '    \t\t', '      \t\t', '        ', '        \t']
+Assignment submitted by Rashi Mathur <rashi@fred.socs.uoguelph.ca> at: Thu Oct 7 23:32:24 2021
